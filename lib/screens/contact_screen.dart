@@ -1,7 +1,15 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:blizzard_demo/widgets/contact_card.dart';
+import 'package:blizzard_demo/screens/password_screen.dart';
 
-class ContactScreen extends StatelessWidget {
+class ContactScreen extends StatefulWidget {
+  @override
+  State<ContactScreen> createState() => _ContactScreenState();
+}
+
+class _ContactScreenState extends State<ContactScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -9,7 +17,7 @@ class ContactScreen extends StatelessWidget {
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
+          children: <Widget>[
             CircleAvatar(
               backgroundImage: AssetImage('images/chua.jpg'),
               radius: 50.0,
@@ -31,6 +39,19 @@ class ContactScreen extends StatelessWidget {
               icon: Icons.email,
               text: 'rchua@wisc.edu',
               url: 'mailto:rchua@wisc.edu',
+            ),
+            ElevatedButton(
+              onPressed: () {
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return PasswordScreen();
+                  },
+                );
+              },
+              child: Text(
+                'Secret Screen',
+              ),
             ),
           ],
         ),
