@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'widgets/contact_card.dart';
 
 void main() {
@@ -33,10 +32,12 @@ class BlizzardDemo extends StatelessWidget {
               ContactCard(
                 icon: Icons.phone,
                 text: '608-514-5293',
+                url: 'tel:6085145293',
               ),
               ContactCard(
                 icon: Icons.email,
                 text: 'rchua@wisc.edu',
+                url: 'mailto:rchua@wisc.edu',
               ),
             ],
           ),
