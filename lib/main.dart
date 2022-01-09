@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'widgets/contact_card.dart';
 
 void main() {
   runApp(const BlizzardDemo());
@@ -16,45 +17,26 @@ class BlizzardDemo extends StatelessWidget {
         body: SafeArea(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const <Widget>[
-              CircleAvatar(
+            children: <Widget>[
+              const CircleAvatar(
                 backgroundImage: AssetImage('images/chua.jpg'),
                 radius: 50.0,
               ),
-              Text(
+              const Text(
                 'Ryan Chua',
                 style: TextStyle(
+                  fontFamily: 'Montserrat',
                   fontSize: 40.0,
                   color: Colors.white,
                 ),
               ),
-              Card(
-                margin: EdgeInsets.symmetric(
-                  vertical: 10.0,
-                  horizontal: 20.0,
-                ),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.phone,
-                    color: Colors.blueAccent,
-                  ),
-                  title: Text(
-                    '(608) 514-5293',
-                  ),
-                ),
+              ContactCard(
+                icon: Icons.phone,
+                text: '608-514-5293',
               ),
-              Card(
-                margin: EdgeInsets.symmetric(
-                  vertical: 10.0,
-                  horizontal: 20.0,
-                ),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.email,
-                    color: Colors.blueAccent,
-                  ),
-                  title: Text('rchua@wisc.edu'),
-                ),
+              ContactCard(
+                icon: Icons.email,
+                text: 'rchua@wisc.edu',
               ),
             ],
           ),
