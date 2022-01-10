@@ -6,13 +6,17 @@ class SecretScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.redAccent,
       body: SafeArea(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text(
-            'Back',
-          ),
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: const Text(
+                'Back',
+              ),
+            ),
+          ],
         ),
       ),
     );

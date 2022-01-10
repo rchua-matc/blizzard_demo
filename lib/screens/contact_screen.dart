@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:blizzard_demo/widgets/contact_card.dart';
 import 'package:blizzard_demo/screens/password_screen.dart';
+import 'package:blizzard_demo/screens/color_screen.dart';
 
 class ContactScreen extends StatefulWidget {
   @override
@@ -16,7 +17,7 @@ class _ContactScreenState extends State<ContactScreen> {
       backgroundColor: Colors.blueAccent,
       body: SafeArea(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
             CircleAvatar(
               backgroundImage: AssetImage('images/chua.jpg'),
@@ -39,6 +40,17 @@ class _ContactScreenState extends State<ContactScreen> {
               icon: Icons.email,
               text: 'rchua@wisc.edu',
               url: 'mailto:rchua@wisc.edu',
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ColorScreen(),
+                  ),
+                );
+              },
+              child: const Text('Color Picker'),
             ),
             ElevatedButton(
               onPressed: () {
