@@ -1,16 +1,23 @@
-# blizzard_demo
+## blizzard_demo
 
-A demo application
+A demo application to show the use of various techniques, including:
+- Local and external assets
+- Packages
+- API requests
+- Dogs
 
-## Getting Started
+### Reflection
+To focus on the idea of controlling lights, I made one page a simple color picker. Color picker 
+packages already exist, but I wanted to use this as an opportunity to learn. It helped me gain
+experience with different color models. Notably, LED lighting is controlled by RGB channels, but 
+creating a realistic spectrum is difficult with RGB. I used HSV instead to create the gradient
+of available colors, which could later be converted to RGB to access each channel.
 
-This project is a starting point for a Flutter application.
+### Packages
+- [Dart http](https://pub.dev/packages/http)
+- [Flutter Spinkit](https://pub.dev/packages/flutter_spinkit)
+- [Flutter url_launcher](https://pub.dev/packages/url_launcher)
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Resources
+- [Photoshop Color Picker in Flutter](https://youtu.be/HURA4DKjA1c) by [SuperDeclarative!](https://www.youtube.com/channel/UCw2IfXRCHaYryORhBICp8QA)
+- [Flutter TextField Validation](https://codewithandrea.com/articles/flutter-text-field-form-validation/) by Code With Andrea
