@@ -3,6 +3,7 @@
 import 'package:blizzard_demo/widgets/hue_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:blizzard_demo/widgets/color_value_field.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ColorScreen extends StatefulWidget {
   const ColorScreen({Key? key}) : super(key: key);
@@ -13,6 +14,16 @@ class ColorScreen extends StatefulWidget {
 
 class _ColorScreenState extends State<ColorScreen> {
   HSVColor _hsvColor = HSVColor.fromAHSV(1.0, 0.0, 1.0, 1.0);
+
+  void launchWebpage() async {
+    Color background = _hsvColor.toColor();
+    String red = background.red.toString();
+    String blue = background.blue.toString();
+    String green = background.green.toString();
+    String url = "https://rchua.net/color/index.php?r=$red&g=$green&b=$blue";
+    if (!await launch(url)) throw 'Could not launch webpage';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,6 +87,16 @@ class _ColorScreenState extends State<ColorScreen> {
                         _hsvColor = _hsvColor.withHue(newHue);
                       });
                     }),
+              ),
+              ElevatedButton(
+                onPressed: launchWebpage,
+                child: const Text(
+                  'Go!',
+                ),
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.blueAccent),
+                ),
               ),
               ElevatedButton(
                 onPressed: () {
