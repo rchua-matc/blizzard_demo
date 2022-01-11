@@ -4,6 +4,7 @@ import 'package:blizzard_demo/widgets/hue_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:blizzard_demo/widgets/color_value_field.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class ColorScreen extends StatefulWidget {
   const ColorScreen({Key? key}) : super(key: key);
@@ -27,10 +28,29 @@ class _ColorScreenState extends State<ColorScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade900,
+      appBar: NeumorphicAppBar(
+        leading: NeumorphicButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          style: const NeumorphicStyle(
+            boxShape: NeumorphicBoxShape.circle(),
+            depth: 4,
+            intensity: 0.5,
+            shape: NeumorphicShape.concave,
+          ),
+          child: Center(
+            child: Icon(
+              Icons.arrow_back,
+              size: 35.0,
+              color: Colors.grey.shade300,
+            ),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 40.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,61 +73,60 @@ class _ColorScreenState extends State<ColorScreen> {
               ),
               LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
-                  return Container(
-                    width: MediaQuery.of(context).size.width * 0.75,
-                    height: MediaQuery.of(context).size.width * 0.75,
-                    decoration: BoxDecoration(
-                      color: _hsvColor.toColor(),
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: Colors.black,
-                        width: 3,
+                  return Neumorphic(
+                    style: NeumorphicStyle(
+                      boxShape: NeumorphicBoxShape.circle(),
+                      shape: NeumorphicShape.convex,
+                      border: NeumorphicBorder(
+                        color: Color(0x33000000),
+                        width: 1.0,
                       ),
-                      boxShadow: const [
-                        BoxShadow(
-                          color: Colors.black,
-                          blurRadius: 20.0,
-                        ),
-                      ],
+                    ),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.75,
+                      height: MediaQuery.of(context).size.width * 0.75,
+                      decoration: BoxDecoration(
+                        color: _hsvColor.toColor(),
+                        shape: BoxShape.circle,
+                      ),
                     ),
                   );
                 },
               ),
-              Container(
-                width: MediaQuery.of(context).size.width * 0.8,
-                height: 50.0,
-                decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
+              Neumorphic(
+                style: NeumorphicStyle(
+                  boxShape: NeumorphicBoxShape.roundRect(
+                    BorderRadius.all(Radius.circular(10.0)),
+                  ),
                 ),
-                child: HuePicker(
-                    selectedHue: _hsvColor.hue,
-                    onHueSelected: (double newHue) {
-                      setState(() {
-                        _hsvColor = _hsvColor.withHue(newHue);
-                      });
-                    }),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: 50.0,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  ),
+                  child: HuePicker(
+                      selectedHue: _hsvColor.hue,
+                      onHueSelected: (double newHue) {
+                        setState(() {
+                          _hsvColor = _hsvColor.withHue(newHue);
+                        });
+                      }),
+                ),
               ),
-              ElevatedButton(
+              NeumorphicButton(
                 onPressed: launchWebpage,
-                child: const Text(
-                  'Go!',
-                ),
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.blueAccent),
-                ),
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: const Text(
-                  'Back',
-                ),
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.black),
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Text(
+                    'Go!',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.grey.shade300,
+                      fontSize: 18.0,
+                    ),
+                  ),
                 ),
               ),
             ],

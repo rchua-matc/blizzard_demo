@@ -17,7 +17,12 @@ of available colors, which could later be converted to RGB to access each channe
 - [Dart http](https://pub.dev/packages/http)
 - [Flutter Spinkit](https://pub.dev/packages/flutter_spinkit)
 - [Flutter url_launcher](https://pub.dev/packages/url_launcher)
+- [flutter_neumorphic](https://pub.dev/packages/flutter_neumorphic)
 
 ### Resources
+- Icon by [Freepik](https://www.freekpik.com)
+- Neumorphism library courtesy of [idean](www.idean.com)
+
+### References
 - [Photoshop Color Picker in Flutter](https://youtu.be/HURA4DKjA1c) by [SuperDeclarative!](https://www.youtube.com/channel/UCw2IfXRCHaYryORhBICp8QA)
 - [Flutter TextField Validation](https://codewithandrea.com/articles/flutter-text-field-form-validation/) by Code With Andrea

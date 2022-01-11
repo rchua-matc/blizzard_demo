@@ -1,9 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:blizzard_demo/widgets/contact_card.dart';
 import 'package:blizzard_demo/screens/password_screen.dart';
 import 'package:blizzard_demo/screens/color_screen.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
 class ContactScreen extends StatefulWidget {
   @override
@@ -15,21 +17,31 @@ class _ContactScreenState extends State<ContactScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.blueAccent,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            CircleAvatar(
-              backgroundImage: AssetImage('images/chua.jpg'),
-              radius: 50.0,
+            Neumorphic(
+              style: NeumorphicStyle(
+                boxShape: NeumorphicBoxShape.circle(),
+              ),
+              child: CircleAvatar(
+                backgroundImage: AssetImage('images/chua.jpg'),
+                radius: 50.0,
+              ),
             ),
-            Text(
-              'Ryan Chua',
-              style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 40.0,
-                color: Colors.white,
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 8.0,
+                bottom: 20.0,
+              ),
+              child: Text(
+                'Ryan Chua',
+                style: TextStyle(
+                  fontSize: 50.0,
+                  fontFamily: 'Montserrat',
+                  color: Colors.grey.shade300,
+                ),
               ),
             ),
             ContactCard(
@@ -37,12 +49,15 @@ class _ContactScreenState extends State<ContactScreen> {
               text: '608-514-5293',
               url: 'tel:6085145293',
             ),
-            ContactCard(
-              icon: Icons.email,
-              text: 'rchua@wisc.edu',
-              url: 'mailto:rchua@wisc.edu',
+            Padding(
+              padding: const EdgeInsets.only(bottom: 20.0),
+              child: ContactCard(
+                icon: Icons.email,
+                text: 'rchua@wisc.edu',
+                url: 'mailto:rchua@wisc.edu',
+              ),
             ),
-            ElevatedButton(
+            NeumorphicButton(
               onPressed: () {
                 Navigator.push(
                   context,
@@ -51,9 +66,20 @@ class _ContactScreenState extends State<ContactScreen> {
                   ),
                 );
               },
-              child: const Text('Color Picker'),
+              margin: EdgeInsets.all(15.0),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: Text(
+                  'Color Picker',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey.shade300,
+                    fontSize: 18.0,
+                  ),
+                ),
+              ),
             ),
-            ElevatedButton(
+            NeumorphicButton(
               onPressed: () {
                 showDialog(
                   context: context,
@@ -62,8 +88,17 @@ class _ContactScreenState extends State<ContactScreen> {
                   },
                 );
               },
-              child: Text(
-                'Secret Screen',
+              margin: EdgeInsets.all(15.0),
+              child: SizedBox(
+                width: MediaQuery.of(context).size.width * 0.5,
+                child: Text(
+                  'Secret Screen',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Colors.grey.shade300,
+                    fontSize: 18.0,
+                  ),
+                ),
               ),
             ),
           ],

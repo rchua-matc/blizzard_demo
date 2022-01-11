@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 /// A material design card to display contact information.
@@ -38,18 +39,28 @@ class ContactCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: launchContact,
-      child: Card(
+      child: Neumorphic(
         margin: const EdgeInsets.symmetric(
           vertical: 10.0,
           horizontal: 20.0,
         ),
         child: ListTile(
-          leading: Icon(
+          leading: NeumorphicIcon(
             icon,
-            color: Colors.blueAccent,
+            style: NeumorphicStyle(
+              color: Colors.grey.shade300,
+            ),
           ),
-          title: Text(
-            text,
+          title: Padding(
+            padding: const EdgeInsets.only(right: 50.0),
+            child: Text(
+              text,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.grey.shade300,
+                fontSize: 18.0,
+              ),
+            ),
           ),
         ),
       ),

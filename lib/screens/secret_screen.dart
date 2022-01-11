@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:blizzard_demo/services/network.dart';
+import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:blizzard_demo/widgets/dog_image.dart';
 
@@ -43,7 +44,26 @@ class _SecretScreenState extends State<SecretScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.redAccent,
+      appBar: NeumorphicAppBar(
+        leading: NeumorphicButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          style: const NeumorphicStyle(
+            boxShape: NeumorphicBoxShape.circle(),
+            depth: 4,
+            intensity: 0.5,
+            shape: NeumorphicShape.concave,
+          ),
+          child: Center(
+            child: Icon(
+              Icons.arrow_back,
+              size: 35.0,
+              color: Colors.grey.shade300,
+            ),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -60,18 +80,16 @@ class _SecretScreenState extends State<SecretScreen> {
                       ),
               ),
             ),
-            ElevatedButton(
+            NeumorphicButton(
               onPressed: newDog,
-              child: const Text(
-                'Show me the dog',
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text(
-                'Back',
+              margin: EdgeInsets.symmetric(vertical: 25.0, horizontal: 40.0),
+              child: Text(
+                'Show me a dog!',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.grey.shade300,
+                  fontSize: 18.0,
+                ),
               ),
             ),
           ],
