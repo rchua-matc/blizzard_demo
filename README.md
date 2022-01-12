@@ -22,6 +22,7 @@ of available colors, which could later be converted to RGB to access each channe
 ### Resources
 - Icon by [Freepik](https://www.freekpik.com)
 - Neumorphism library courtesy of [idean](www.idean.com)
+- Dog images from the [Dog API](https://dog.ceo/dog-api/)
 
 ### References
 - [Photoshop Color Picker in Flutter](https://youtu.be/HURA4DKjA1c) by [SuperDeclarative!](https://www.youtube.com/channel/UCw2IfXRCHaYryORhBICp8QA)

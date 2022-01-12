@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:blizzard_demo/constants.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -37,30 +37,24 @@ class ContactCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: launchContact,
-      child: Neumorphic(
-        margin: const EdgeInsets.symmetric(
-          vertical: 10.0,
-          horizontal: 20.0,
+    return NeumorphicButton(
+      onPressed: launchContact,
+      margin: const EdgeInsets.symmetric(
+        vertical: 10.0,
+        horizontal: 20.0,
+      ),
+      child: ListTile(
+        leading: Icon(
+          icon,
+          color: TEXT_COLOR,
+          size: 30.0,
         ),
-        child: ListTile(
-          leading: NeumorphicIcon(
-            icon,
-            style: NeumorphicStyle(
-              color: Colors.grey.shade300,
-            ),
-          ),
-          title: Padding(
-            padding: const EdgeInsets.only(right: 50.0),
-            child: Text(
-              text,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Colors.grey.shade300,
-                fontSize: 18.0,
-              ),
-            ),
+        title: Padding(
+          padding: const EdgeInsets.only(right: 50.0),
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: BUTTON_TEXT_STYLE,
           ),
         ),
       ),

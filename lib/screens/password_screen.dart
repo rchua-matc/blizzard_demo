@@ -6,6 +6,8 @@ import 'package:blizzard_demo/screens/secret_screen.dart';
 /// This dialog password protects the [SecretScreen]. It handles input
 /// validation and routing to the protected screen.
 class PasswordScreen extends StatefulWidget {
+  const PasswordScreen({Key? key}) : super(key: key);
+
   @override
   State<PasswordScreen> createState() => _PasswordScreenState();
 

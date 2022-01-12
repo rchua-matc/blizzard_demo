@@ -1,13 +1,16 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:blizzard_demo/constants.dart';
 import 'package:blizzard_demo/widgets/contact_card.dart';
 import 'package:blizzard_demo/screens/password_screen.dart';
 import 'package:blizzard_demo/screens/color_screen.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
+/// A screen with the author's contact information and links to the other pages.
+///
+/// Touching the contact information will open the corresponding app for easy
+/// communication.
 class ContactScreen extends StatefulWidget {
+  const ContactScreen({Key? key}) : super(key: key);
+
   @override
   State<ContactScreen> createState() => _ContactScreenState();
 }
@@ -22,16 +25,16 @@ class _ContactScreenState extends State<ContactScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Neumorphic(
-              style: NeumorphicStyle(
+              style: const NeumorphicStyle(
                 boxShape: NeumorphicBoxShape.circle(),
               ),
-              child: CircleAvatar(
+              child: const CircleAvatar(
                 backgroundImage: AssetImage('images/chua.jpg'),
                 radius: 50.0,
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(
+            const Padding(
+              padding: EdgeInsets.only(
                 top: 8.0,
                 bottom: 20.0,
               ),
@@ -40,17 +43,17 @@ class _ContactScreenState extends State<ContactScreen> {
                 style: TextStyle(
                   fontSize: 50.0,
                   fontFamily: 'Montserrat',
-                  color: Colors.grey.shade300,
+                  color: TEXT_COLOR,
                 ),
               ),
             ),
-            ContactCard(
+            const ContactCard(
               icon: Icons.phone,
               text: '608-514-5293',
               url: 'tel:6085145293',
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 20.0),
+            const Padding(
+              padding: EdgeInsets.only(bottom: 20.0),
               child: ContactCard(
                 icon: Icons.email,
                 text: 'rchua@wisc.edu',
@@ -62,20 +65,17 @@ class _ContactScreenState extends State<ContactScreen> {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ColorScreen(),
+                    builder: (context) => const ColorScreen(),
                   ),
                 );
               },
-              margin: EdgeInsets.all(15.0),
+              margin: const EdgeInsets.all(15.0),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
-                child: Text(
+                child: const Text(
                   'Color Picker',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.grey.shade300,
-                    fontSize: 18.0,
-                  ),
+                  style: BUTTON_TEXT_STYLE,
                 ),
               ),
             ),
@@ -88,16 +88,13 @@ class _ContactScreenState extends State<ContactScreen> {
                   },
                 );
               },
-              margin: EdgeInsets.all(15.0),
+              margin: const EdgeInsets.all(15.0),
               child: SizedBox(
                 width: MediaQuery.of(context).size.width * 0.5,
-                child: Text(
+                child: const Text(
                   'Secret Screen',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.grey.shade300,
-                    fontSize: 18.0,
-                  ),
+                  style: BUTTON_TEXT_STYLE,
                 ),
               ),
             ),

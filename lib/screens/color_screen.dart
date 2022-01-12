@@ -1,11 +1,15 @@
-// ignore_for_file: prefer_const_constructors
-
+import 'package:blizzard_demo/constants.dart';
 import 'package:blizzard_demo/widgets/hue_picker.dart';
-import 'package:flutter/material.dart';
 import 'package:blizzard_demo/widgets/color_value_field.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
+/// A screen with a color picker.
+///
+/// Contains a slider to pick a color, a circle showing the currently selected
+/// color, and the RGB values of the currently selected color. When the "Go!"
+/// button is pressed, a webpage is opened with the selected color as the
+/// background.
 class ColorScreen extends StatefulWidget {
   const ColorScreen({Key? key}) : super(key: key);
 
@@ -14,8 +18,14 @@ class ColorScreen extends StatefulWidget {
 }
 
 class _ColorScreenState extends State<ColorScreen> {
-  HSVColor _hsvColor = HSVColor.fromAHSV(1.0, 0.0, 1.0, 1.0);
+  /// The currently selected color.
+  HSVColor _hsvColor = const HSVColor.fromAHSV(1.0, 0.0, 1.0, 1.0);
 
+  /// Opens a webpage with the selected color as the background color.
+  ///
+  /// Converts the current color to the RGB values and passes each channel
+  /// as a parameter in the webpage's query string. If the page fails to open,
+  /// throws and exception.
   void launchWebpage() async {
     Color background = _hsvColor.toColor();
     String red = background.red.toString();
@@ -39,11 +49,11 @@ class _ColorScreenState extends State<ColorScreen> {
             intensity: 0.5,
             shape: NeumorphicShape.concave,
           ),
-          child: Center(
+          child: const Center(
             child: Icon(
               Icons.arrow_back,
               size: 35.0,
-              color: Colors.grey.shade300,
+              color: TEXT_COLOR,
             ),
           ),
         ),
@@ -74,7 +84,7 @@ class _ColorScreenState extends State<ColorScreen> {
               LayoutBuilder(
                 builder: (BuildContext context, BoxConstraints constraints) {
                   return Neumorphic(
-                    style: NeumorphicStyle(
+                    style: const NeumorphicStyle(
                       boxShape: NeumorphicBoxShape.circle(),
                       shape: NeumorphicShape.convex,
                       border: NeumorphicBorder(
@@ -96,13 +106,13 @@ class _ColorScreenState extends State<ColorScreen> {
               Neumorphic(
                 style: NeumorphicStyle(
                   boxShape: NeumorphicBoxShape.roundRect(
-                    BorderRadius.all(Radius.circular(10.0)),
+                    const BorderRadius.all(Radius.circular(10.0)),
                   ),
                 ),
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.8,
                   height: 50.0,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Colors.transparent,
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
@@ -119,13 +129,10 @@ class _ColorScreenState extends State<ColorScreen> {
                 onPressed: launchWebpage,
                 child: SizedBox(
                   width: MediaQuery.of(context).size.width * 0.5,
-                  child: Text(
+                  child: const Text(
                     'Go!',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.grey.shade300,
-                      fontSize: 18.0,
-                    ),
+                    style: BUTTON_TEXT_STYLE,
                   ),
                 ),
               ),

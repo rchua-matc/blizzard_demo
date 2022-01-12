@@ -1,11 +1,16 @@
-import 'package:flutter/material.dart';
 import 'package:blizzard_demo/screens/contact_screen.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
+/// Runs the Blizzard Demo.
 void main() {
   runApp(const BlizzardDemo());
 }
 
+/// The Blizzard Demo app.
+///
+/// Consists of three screens: (1) a screen with the author's contact
+/// information, (2) a screen with a color picker and (3) a password-protected
+/// screen that displays random images of dogs.
 class BlizzardDemo extends StatelessWidget {
   const BlizzardDemo({Key? key}) : super(key: key);
 

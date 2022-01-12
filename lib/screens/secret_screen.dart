@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:blizzard_demo/constants.dart';
 import 'package:blizzard_demo/services/network.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -23,6 +23,8 @@ class _SecretScreenState extends State<SecretScreen> {
   /// The URL of the dog image to display
   String url = '';
 
+  /// Runs the [newDog] method upon build so that an initial dog picture is
+  /// displayed.
   @override
   void initState() {
     super.initState();
@@ -55,11 +57,11 @@ class _SecretScreenState extends State<SecretScreen> {
             intensity: 0.5,
             shape: NeumorphicShape.concave,
           ),
-          child: Center(
+          child: const Center(
             child: Icon(
               Icons.arrow_back,
               size: 35.0,
-              color: Colors.grey.shade300,
+              color: TEXT_COLOR,
             ),
           ),
         ),
@@ -69,7 +71,7 @@ class _SecretScreenState extends State<SecretScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width * 0.8,
               height: MediaQuery.of(context).size.height * 0.6,
               child: Center(
@@ -82,14 +84,14 @@ class _SecretScreenState extends State<SecretScreen> {
             ),
             NeumorphicButton(
               onPressed: newDog,
-              margin: EdgeInsets.symmetric(vertical: 25.0, horizontal: 40.0),
-              child: Text(
+              margin: const EdgeInsets.symmetric(
+                vertical: 25.0,
+                horizontal: 40.0,
+              ),
+              child: const Text(
                 'Show me a dog!',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.grey.shade300,
-                  fontSize: 18.0,
-                ),
+                style: BUTTON_TEXT_STYLE,
               ),
             ),
           ],

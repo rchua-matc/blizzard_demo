@@ -1,12 +1,15 @@
-// ignore_for_file: prefer_const_constructors
-
-import 'package:flutter/material.dart';
+import 'package:blizzard_demo/constants.dart';
 import 'package:flutter_neumorphic/flutter_neumorphic.dart';
 
+/// A widget to display a color channel and its value.
 class ColorValueField extends StatelessWidget {
-  ColorValueField({required this.color, required this.value});
+  const ColorValueField({Key? key, required this.color, required this.value})
+      : super(key: key);
 
+  /// The color channel to display, i.e. "R", "G" or "B".
   final String color;
+
+  /// The value of the channel, i.e. 0 - 255.
   final int value;
 
   @override
@@ -16,8 +19,7 @@ class ColorValueField extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Neumorphic(
           child: Container(
-            decoration: BoxDecoration(
-              // color: Color(0xFF0A0E21),
+            decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(8.0)),
             ),
             child: Row(
@@ -27,22 +29,14 @@ class ColorValueField extends StatelessWidget {
                   child: Text(
                     '$color:',
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.grey.shade300,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.0,
-                    ),
+                    style: COLOR_VALUE_TEXT,
                   ),
                 ),
                 Expanded(
                   child: Text(
                     value.toString(),
                     textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.grey.shade300,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16.0,
-                    ),
+                    style: COLOR_VALUE_TEXT,
                   ),
                 ),
               ],
