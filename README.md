@@ -4,6 +4,7 @@ A demo application to show the use of various techniques, including:
 - Local and external assets
 - Packages
 - API requests
+- Managing state
 - Dogs
 
 ### Reflection
@@ -12,6 +13,11 @@ packages already exist, but I wanted to use this as an opportunity to learn. It 
 experience with different color models. Notably, LED lighting is controlled by RGB channels, but 
 creating a realistic spectrum is difficult with RGB. I used HSV instead to create the gradient
 of available colors, which could later be converted to RGB to access each channel.
+
+I've been wanting to try a neumorphic UI design for a while now, and the
+[flutter_neumorphic](https://pub.dev/packages/flutter_neumorphic) package made it easy to try out.
+It was fun working in a new style, especially since I wouldn't use it in a more serious project
+due to its issues with accessibility.
 
 ### Packages
 - [Dart http](https://pub.dev/packages/http)
