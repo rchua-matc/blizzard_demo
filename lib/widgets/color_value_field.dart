@@ -18,6 +18,10 @@ class ColorValueField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Neumorphic(
+          style: const NeumorphicStyle(
+            depth: 0,
+            color: Color(0xFF242424),
+          ),
           child: Container(
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(8.0)),

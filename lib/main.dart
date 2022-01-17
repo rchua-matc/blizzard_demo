@@ -16,9 +16,9 @@ class BlizzardDemo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return NeumorphicApp(
+    return const NeumorphicApp(
       home: ContactScreen(),
-      theme: const NeumorphicThemeData(
+      theme: NeumorphicThemeData(
         baseColor: Color(0xff333333),
         accentColor: Colors.green,
         lightSource: LightSource.topLeft,
